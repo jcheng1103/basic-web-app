@@ -7,5 +7,9 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
+  if (query === "What is your Andrew ID?"){
+    return "jdcheng";
+  }
+
   return "";
 }
