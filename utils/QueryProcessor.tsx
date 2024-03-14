@@ -35,6 +35,13 @@ export default function QueryProcessor(query: string): string {
     return res.toString();
   }
 
+  if (query.startsWith("What is ") && query.includes("multiplied")){
+    let temp = query.match(/\d+/g);
+    if (temp === null) return "";
+    let res = parseInt(temp[0]) - parseInt(temp[1]);
+    return res.toString();
+  }
+
   if (query.startsWith("Which of the following numbers is both a square and a cube: ")){
     let temp = query.match(/\d+/g);
     if (temp === null) return "";
