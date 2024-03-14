@@ -11,5 +11,9 @@ export default function QueryProcessor(query: string): string {
     return "jdcheng";
   }
 
+  if (query === "What is your name?"){
+    return "amogus";
+  }
+
   return "";
 }
