@@ -21,7 +21,10 @@ export default function QueryProcessor(query: string): string {
   if (query.startsWith("What is ") && query.includes("plus")){
     let temp = query.match(/\d+/g);
     if (temp === null) return "";
-    let res = parseInt(temp[0]) + parseInt(temp[1]);
+    let res = 0;
+    for (let i = 0; i < temp.length; i++){
+      res += parseInt(temp[i]);
+    }
     return res.toString();
   }
 
