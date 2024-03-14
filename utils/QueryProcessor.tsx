@@ -65,6 +65,7 @@ export default function QueryProcessor(query: string): string {
       }
       if (prime) res += ", " + temp[i];
     }
+    return res;
   }
 
   if (query.includes("power")){
