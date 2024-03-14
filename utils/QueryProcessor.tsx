@@ -13,16 +13,26 @@ export default function QueryProcessor(query: string): string {
 
   if (query.startsWith("Which of the following numbers is the largest:")){
     let temp = query.match(/\d+/g);
-    if (temp == null) return "";
+    if (temp === null) return "";
     let res = Math.max(parseInt(temp[0]), parseInt(temp[1]), parseInt(temp[2]));
     return res.toString();
   }
 
   if (query.startsWith("What is ")){
     let temp = query.match(/\d+/g);
-    if (temp == null) return "";
+    if (temp === null) return "";
     let res = parseInt(temp[0]) + parseInt(temp[1]);
     return res.toString();
+  }
+
+  if (query.startsWith("Which of the following numbers is both a square and a cube: ")){
+    let temp = query.match(/\d+/g);
+    if (temp === null) return "";
+    for (let i = 0; i < temp.length; i++){
+      let x = parseInt(temp[i]);
+      if (Math.sqrt(x) % 1 == 0 && Math.cbrt(x) % 1 == 0) return temp[i];
+    }
+    return "";
   }
 
   return "";
