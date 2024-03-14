@@ -11,8 +11,16 @@ export default function QueryProcessor(query: string): string {
     return "jdcheng";
   }
 
-  if (query === "What is your name?"){
-    return "amogus";
+  if (query.startsWith("Which of the following numbers is the largest:")){
+    let temp = query.match(/\d+/g);
+    let res = Math.max(parseInt(temp[0]), parseInt(temp[1]), parseInt(temp[2]));
+    return res.toString();
+  }
+
+  if (query.startsWith("What is ")){
+    let temp = query.match(/\d+/g);
+    let res = parseInt(temp[0]) + parseInt(temp[1]);
+    return res.toString();
   }
 
   return "";
