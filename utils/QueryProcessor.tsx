@@ -55,5 +55,12 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  if (query.includes("power")){
+    let temp = query.match(/\d+/g);
+    if (temp === null) return "";
+    let res = Math.pow(parseInt(temp[0]), parseInt(temp[1]));
+    return res.toString();
+  }
+
   return "";
 }
