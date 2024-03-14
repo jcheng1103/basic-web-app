@@ -42,5 +42,18 @@ export default function QueryProcessor(query: string): string {
     return "";
   }
 
+  if (query.includes("primes")){
+    let temp = query.match(/\d+/g);
+    if (temp === null) return "";
+    for (let i = 0; i < temp.length; i++){
+      let x = parseInt(temp[i]);
+      let prime = true;
+      for (let j = 2; j*j <= x; j++){
+        if (x % j == 0) prime = false;
+      }
+      if (prime) return temp[i];
+    }
+  }
+
   return "";
 }
